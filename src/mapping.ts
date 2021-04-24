@@ -24,7 +24,7 @@ export function handlelogOutcome(event: logOutcome): void {
   //entity.param1 = entity.count + BigInt.fromI32(1)
   entity.move = event.params.param2.toI32()
   //entity.outcome = event.params.param1
-  //entity.owner = event.params.param0
+  entity.owner = event.params.param0
 
   // Entities can be written to the store with `.save()`
   entity.save()

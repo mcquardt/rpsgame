@@ -2,5 +2,5 @@ type ExampleEntity @entity {
   id: ID!
   count: BigInt!
   move: Int
-  #owner: Bytes
+  owner: Bytes
 }
