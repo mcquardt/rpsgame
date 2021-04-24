@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Game
@@ -16,8 +16,8 @@ dataSources:
         - logOutcome
       abis:
         - name: Game
-          file: ./abis/Game.json
+          file: Game/abis/Game.json
       eventHandlers:
         - event: logOutcome(address,string,uint256)
           handler: handlelogOutcome
-      file: ./src/mapping.ts
+      file: Game/Game.wasm

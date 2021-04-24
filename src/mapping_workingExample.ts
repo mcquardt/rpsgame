@@ -5,12 +5,12 @@ import { ExampleEntity } from "../generated/schema"
 export function handlelogOutcome(event: logOutcome): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let entity = ExampleEntity.load(event.transaction.hash.toHex())
+  let entity = ExampleEntity.load(event.transaction.from.toHex())
 
   // Entities only exist after they have been saved to the store;
   // `null` checks allow to create entities on demand
   if (entity == null) {
-    entity = new ExampleEntity(event.transaction.hash.toHex())
+    entity = new ExampleEntity(event.transaction.from.toHex())
 
     // Entity fields can be set using simple assignments
     entity.count = BigInt.fromI32(0)
@@ -22,9 +22,7 @@ export function handlelogOutcome(event: logOutcome): void {
   // Entity fields can be set based on event parameters
   //entity.param0 = event.params.param0
   //entity.param1 = entity.count + BigInt.fromI32(1)
-  entity.move = event.params.param2.toI32()
-  //entity.outcome = event.params.param1
-  //entity.owner = event.params.param0
+  entity.move = 5
 
   // Entities can be written to the store with `.save()`
   entity.save()
